@@ -7,23 +7,53 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,500;1,9..144,600&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="cssuas.css">
 </head>
 <body>
 
-<!-- NAV -->
-<header class="nav">
-  <div class="nav-inner">
-    <div class="nav-brand"><span class="dot"></span>TEMPAT WISATA</div>
-    <nav class="nav-tabs">
-      <a href="#" class="tab">Wisata Air</a>
-      <a href="#" class="tab active">Wisata Alam</a>
-      <a href="#" class="tab">Wisata Kuliner</a>
-    </nav>
-    <button class="nav-cta">Rencanakan perjalanan</button>
-  </div>
-</header>
+<!-- NAVBAR BOOTSTRAP -->
+<nav class="navbar navbar-expand-lg navbar-dark nav sticky-top">
+  <div class="container">
 
+    <a class="navbar-brand nav-brand" href="#">
+      <span class="dot"></span> TEMPAT WISATA
+    </a>
+
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Wisata Air</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Wisata Alam</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Wisata Kuliner</a>
+        </li>
+
+      </ul>
+
+      <button class="btn btn-outline-light rounded-pill">
+        Rencanakan Perjalanan
+      </button>
+
+    </div>
+
+  </div>
+</nav>
 <!-- HERO -->
 <section class="hero">
   <img class="hero-img" src="https://i.pinimg.com/736x/60/9f/8d/609f8d29d24141d94cbfe3db04c7c24f.jpg" alt="Gunung Kelimutu">
@@ -148,3 +178,7 @@
     <button class="promo-cta"> Jelajahi Wisata &rarr;</button>
   </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
