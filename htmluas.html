@@ -7,92 +7,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,500;1,9..144,600&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap 5 CSS (loaded first so custom styles below can override it) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="cssuas.css">
 </head>
 <body>
 
-<!-- NAVBAR BOOTSTRAP -->
-<nav class="navbar navbar-expand-lg navbar-dark nav sticky-top">
-  <div class="container">
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="dot"></span>TEMPAT WISATA</div>
 
-    <a class="navbar-brand nav-brand" href="#">
-      <span class="dot"></span> TEMPAT WISATA
-    </a>
-
-    <button class="navbar-toggler" type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav">
-
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navTabsCollapse" aria-controls="navTabsCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <nav class="nav-tabs collapse" id="navTabsCollapse">
+      <a href="#" class="tab">Wisata Air</a>
+      <a href="#" class="tab active">Wisata Alam</a>
+      <a href="#" class="tab">Wisata Kuliner</a>
+    </nav>
 
-      <ul class="navbar-nav mx-auto">
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Wisata Air</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Wisata Alam</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Wisata Kuliner</a>
-        </li>
-
-      </ul>
-
-      <button class="btn btn-outline-light rounded-pill">
-        Rencanakan Perjalanan
-      </button>
-
-    </div>
-
+    <button class="nav-cta" data-bs-toggle="modal" data-bs-target="#bookingModal">Rencanakan perjalanan</button>
   </div>
-</nav>
+</header>
+
 <!-- HERO -->
 <section class="hero">
-  <div id="heroCarousel" class="carousel slide hero-img" data-bs-ride="carousel">
-
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-    </div>
-    
-    <div class="carousel-inner"> 
-
-      <div class="carousel-item active">
-        <img src="https://i.pinimg.com/736x/60/9f/8d/609f8d29d24141d94cbfe3db04c7c24f.jpg"
-          class="d-block w-100"
-          alt="Purwakarta 1">
-      </div>
-
-      <div class="carousel-item">
-        <img src="https://i.pinimg.com/736x/ca/dd/c8/caddc85ec43dbcf4d7bd8b6eabeb9253.jpg"
-          class="d-block w-100"
-          alt="Purwakarta 2">
-      </div>
-
-      <div class="carousel-item">
-        <img src="https://i.pinimg.com/1200x/9b/ae/08/9bae082240e7f58f86cd1475be1f8720.jpg"
-          class="d-block w-100"
-          alt="Purwakarta 3">
-      </div>
-
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
+  <img class="hero-img" src="https://i.pinimg.com/736x/60/9f/8d/609f8d29d24141d94cbfe3db04c7c24f.jpg" alt="Gunung Kelimutu">
   <div class="hero-counter">
     <span>03</span>
     <span>04</span>
@@ -116,183 +58,246 @@
 <section class="section">
   <div class="section-head">
     <div>
-      <p class="eyebrow">Bingung mau ke mana? Ini dia</p>
-      <h2 class="section-title">Rekomendasi Destinasi di Purwakarta</h2>
+      <p class="eyebrow">bingung mau ke mana? ini dia</p>
+      <h2 class="section-title">rekomendasi destinasi di Purwakarta</h2>
     </div>
     <a href="#" class="section-link">Lihat semua destinasi &rarr;</a>
   </div>
 
-  <div class="container">
-    <div class="row g-4">
-
-      <!-- Card 1 -->
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card rec-card h-100 shadow-sm border-0">
-          <span class="rec-rank">01</span>
-          <img src="https://i.pinimg.com/736x/ca/dd/c8/caddc85ec43dbcf4d7bd8b6eabeb9253.jpg"
-               class="card-img-top"
-               alt="Sri Baduga">
-          <div class="card-body rec-label">
-            <span class="place">Peringkat 1</span>
-            <h5 class="name">Taman Air Mancur Sri Baduga</h5>
-          </div>
-        </div>
+  <div class="rec-row">
+    <div class="rec-card">
+      <span class="rec-rank">01</span>
+      <img src="https://i.pinimg.com/736x/ca/dd/c8/caddc85ec43dbcf4d7bd8b6eabeb9253.jpg" alt="Sri Baduga">
+      <div class="rec-label">
+        <span class="place">Peringkat 1</span>
+        <span class="name"> Taman Air Mancur Sri Baduga </span>
       </div>
-
-      <!-- Card 2 -->
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card rec-card h-100 shadow-sm border-0">
-          <span class="rec-rank">02</span>
-          <img src="https://i.pinimg.com/1200x/9b/ae/08/9bae082240e7f58f86cd1475be1f8720.jpg"
-            class="card-img-top"
-            alt="Danau Jatiluhur">
-          <div class="card-body rec-label">
-            <span class="place">Peringkat 2</span>
-            <h5 class="name">Danau Jatiluhur</h5>
-          </div>
-        </div>
+    </div>
+    <div class="rec-card">
+      <span class="rec-rank">02</span>
+      <img src="https://i.pinimg.com/1200x/9b/ae/08/9bae082240e7f58f86cd1475be1f8720.jpg" alt="Danau Jatiluhur">
+      <div class="rec-label">
+        <span class="place">Peringkat 2</span>
+        <span class="name"> Danau  Jatiluhur </span>
       </div>
-
-      <!-- Card 3 -->
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card rec-card h-100 shadow-sm border-0">
-          <span class="rec-rank">03</span>
-          <img src="https://i.pinimg.com/736x/5a/5e/53/5a5e53dc8bf586956d5faa740fb3990c.jpg"
-            class="card-img-top"
-            alt="Parang Gombong">
-          <div class="rec-label">
-            <span class="place">Peringkat 3</span>
-            <h5 class="name">Parang Gombong, Jatiluhur</h5>
-          </div>
-        </div>
+    </div>
+    <div class="rec-card">
+      <span class="rec-rank">03</span>
+      <img src="https://i.pinimg.com/736x/5a/5e/53/5a5e53dc8bf586956d5faa740fb3990c.jpg" alt="Parang Gombong">
+      <div class="rec-label">
+        <span class="place">Peringkat 3</span>
+        <span class="name">Parang Gombong, Jatiluhur Purwakarta</span>
       </div>
-
-      <!-- Card 4 -->
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card rec-card h-100 shadow-sm border-0">
-          <span class="rec-rank">04</span>
-          <img src="https://i.pinimg.com/1200x/ce/50/cc/ce50ccb34fca087d5dc133613f5b389a.jpg"
-            class="card-img-top"
-            alt="Taman Batu">
-          <div class="card-body rec-label">
-            <span class="place">Peringkat 4</span>
-            <h5 class="name">Taman Batu Purwakarta</h5>
-          </div>
-        </div>
+    </div>
+    <div class="rec-card">
+      <span class="rec-rank">04</span>
+      <img src="https://i.pinimg.com/1200x/ce/50/cc/ce50ccb34fca087d5dc133613f5b389a.jpg" alt="Taman Batu">
+      <div class="rec-label">
+        <span class="place">Peringkat 4</span>
+        <span class="name"> Taman Batu, Purwakarta</span>
       </div>
-
-      <!-- Card 5 -->
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card rec-card h-100 shadow-sm border-0">
-          <span class="rec-rank">05</span>
-          <img src="https://i.pinimg.com/1200x/88/a1/2c/88a12cb803745ec57d90f8e2642a96eb.jpg" 
-            class="card-img-top"
-            alt="Situ Wanayasa">
-          <div class="card-body rec-label">
-            <span class="place">Peringkat 5</span>
-            <h5 class="name">Situ Wanayasa</h5>
-          </div>
-        </div>
+    </div>
+    <div class="rec-card">
+      <span class="rec-rank">05</span>
+      <img src="https://i.pinimg.com/1200x/88/a1/2c/88a12cb803745ec57d90f8e2642a96eb.jpg" alt="Situ Wanayasa">
+      <div class="rec-label">
+        <span class="place">Peringkat 5</span>
+        <span class="name"> Situ Wanayasa, Purwakarta</span>
       </div>
-
-      <!-- Card 6 -->
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card rec-card h-100 shadow-sm border-0">
-          <span class="rec-rank">06</span>
-          <img src="https://i.pinimg.com/736x/16/18/10/161810937da8a79a4a7ca13496c0f745.jpg" 
-            class="card-img-top"
-            alt="Castle Cafe">
-          <div class="card-body rec-label">
-            <span class="place">Peringkat 6</span>
-            <h5 class="name">Castle Cafe</h5>
-          </div>
-        </div>
+    </div>
+    <div class="rec-card">
+      <span class="rec-rank">06</span>
+      <img src="https://i.pinimg.com/736x/16/18/10/161810937da8a79a4a7ca13496c0f745.jpg" alt="Castle Cafe">
+      <div class="rec-label">
+        <span class="place">Peringkat 6</span>
+        <span class="name"> Castle Cafe, Purwakarta</span>
       </div>
-
-      <!-- Card 7 -->
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card rec-card h-100 shadow-sm border-0">
-          <span class="rec-rank">07</span>
-          <img src="https://i.pinimg.com/1200x/c8/06/60/c806600731196744d3df7440c797ac5b.jpg" 
-            class="card-img-top"
-            alt="Cafe Hutan Jati">
-          <div class="card-body rec-label">
-            <span class="place">Peringkat 7</span>
-            <h5 class="name">Cafe Hutan Jati</h5>
-          </div>
-        </div>
+    </div>
+    <div class="rec-card">
+      <span class="rec-rank">07</span>
+      <img src="https://i.pinimg.com/1200x/c8/06/60/c806600731196744d3df7440c797ac5b.jpg" alt="Cafe Hutan Jati, Purwakarta">
+      <div class="rec-label">
+        <span class="place">Peringkat 7</span>
+        <span class="name"> Cafe Hutan Jati </span>
       </div>
-
-      <!-- Card 8 -->
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card rec-card h-100 shadow-sm border-0">
-          <span class="rec-rank">08</span>
-          <img src="https://i.pinimg.com/736x/f3/6d/92/f36d92985043e7d394711de4417f6e88.jpg" 
-            class="card-img-top"
-            alt="Sate Maranggi">
-          <div class="card-body rec-label">
-            <span class="place">Peringkat 8</span>
-            <h5 class="name">Sate Maranggi Hj. Yetty</h5>
-          </div>
-        </div>
+    </div>
+    <div class="rec-card">
+      <span class="rec-rank">08</span>
+      <img src="https://i.pinimg.com/736x/f3/6d/92/f36d92985043e7d394711de4417f6e88.jpg" alt="Sate Maranggi">
+      <div class="rec-label">
+        <span class="place">Peringkat 8</span>
+        <span class="name"> Sate Maranggi Hj. Yetty</span>
       </div>
-
     </div>
   </div>
 </section>
+
 
 <!-- PROMO -->
-<section class="promo container py-5">
-  <div class="row align-items-center">
-
-    <div class="col-lg-7">
-      <div class="promo-media">
-        <img src="https://picsum.photos/seed/raja-ampat-flag-desktop/1200/1000" alt="Raja Ampat">
-
-        <div class="promo-strip">
-          <div class="promo-thumb playable">
-            <img src="https://picsum.photos/seed/raja-ampat-jump-desktop/300/220" alt="">
-          </div>
-
-          <div class="promo-thumb">
-            <img src="https://picsum.photos/seed/raja-ampat-dock-desktop/300/220" alt="">
-          </div>
-
-          <span class="promo-handle">@wanderlust.id</span>
-        </div>
+<section class="promo">
+  <div class="promo-media">
+    <img src="https://picsum.photos/seed/raja-ampat-flag-desktop/1200/1000" alt="Raja Ampat">
+    <div class="promo-strip">
+      <div class="promo-thumb playable">
+        <img src="https://picsum.photos/seed/raja-ampat-jump-desktop/300/220" alt="">
       </div>
-    </div>
-
-    <div class="col-lg-5">
-      <div class="promo-body">
-
-        <p class="eyebrow">Episode Liburan</p>
-
-        <h2 class="promo-title">
-          Jelajahi &amp; Nikmati Liburanmu
-        </h2>
-
-        <div class="promo-play">
-          <span class="dot">
-            <svg viewBox="0 0 10 10" fill="var(--void)">
-              <polygon points="1,0 10,5 1,10"/>
-            </svg>
-          </span>
-          Temukan destinasi pilihanmu!
-        </div>
-
-        <p class="promo-text">
-          Dari pegunungan hingga danau, Purwakarta menawarkan berbagai tempat untuk melepas penat dan menikmati keindahan alam.
-        </p>
-
-        <button class="btn btn-danger rounded-pill px-4">
-          Jelajahi Wisata →
-        </button>
-
+      <div class="promo-thumb">
+        <img src="https://picsum.photos/seed/raja-ampat-dock-desktop/300/220" alt="">
       </div>
+      <span class="promo-handle">@wanderlust.id</span>
     </div>
-
+  </div>
+  <div class="promo-body">
+    <p class="eyebrow">episode liburan</p>
+    <h2 class="promo-title">Jelajahi &amp; nikmati liburanmu</h2>
+    <div class="promo-play">
+      <span class="dot"><svg viewBox="0 0 10 10" fill="var(--void)"><polygon points="1,0 10,5 1,10"/></svg></span>
+      temukan destinasi pilihanmu!
+    </div>
+    <p class="promo-text">Dari pegunungan hingga danau, purwakarta menawarkan berbagai tempat untuk melepas penat dan menikmati — keindahan alam </p>
+    <button class="promo-cta" data-bs-toggle="modal" data-bs-target="#bookingModal"> Jelajahi Wisata &rarr;</button>
   </div>
 </section>
+
+<!-- GALLERY CAROUSEL -->
+<section class="gallery">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">momen liburan</p>
+      <h2 class="section-title">galeri destinasi Purwakarta</h2>
+    </div>
+  </div>
+
+  <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.pinimg.com/736x/ca/dd/c8/caddc85ec43dbcf4d7bd8b6eabeb9253.jpg" alt="Taman Air Mancur Sri Baduga">
+        <div class="carousel-caption">
+          <h5>Taman Air Mancur Sri Baduga</h5>
+          <p>Ikon kota Purwakarta dengan pertunjukan air mancur menari di malam hari.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/1200x/9b/ae/08/9bae082240e7f58f86cd1475be1f8720.jpg" alt="Danau Jatiluhur">
+        <div class="carousel-caption">
+          <h5>Danau Jatiluhur</h5>
+          <p>Bentangan danau buatan terbesar di Indonesia, cocok untuk wisata air.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/736x/5a/5e/53/5a5e53dc8bf586956d5faa740fb3990c.jpg" alt="Parang Gombong">
+        <div class="carousel-caption">
+          <h5>Parang Gombong</h5>
+          <p>Spot tebing dan hamparan hijau di kawasan Jatiluhur.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/1200x/88/a1/2c/88a12cb803745ec57d90f8e2642a96eb.jpg" alt="Situ Wanayasa">
+        <div class="carousel-caption">
+          <h5>Situ Wanayasa</h5>
+          <p>Situ tenang dikelilingi perbukitan, favorit untuk healing santai.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Sebelumnya</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Berikutnya</span>
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-inner d-flex flex-wrap align-items-center gap-3">
+    <div class="foot-author">
+      <img class="foot-avatar" src="https://i.pravatar.cc/68?img=32" alt="Penulis">
+      <div>
+        <span class="foot-name">Rangga Adiputra</span>
+        <span class="foot-role">Kontributor Wisata</span>
+      </div>
+    </div>
+
+    <p class="foot-comment mb-0">
+      <b>Tips:</b> datang ke Sri Baduga saat sore hari, dan cek jadwal pertunjukan air mancur sebelum berangkat ya!
+    </p>
+
+    <div class="engage ms-md-auto d-flex align-items-center gap-3 flex-wrap">
+      <button type="button" class="engage-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        128
+      </button>
+      <button type="button" class="engage-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+        24
+      </button>
+      <div class="foot-social d-flex align-items-center gap-2">
+        <a href="#" aria-label="Bagikan ke Facebook">FB</a>
+        <a href="#" aria-label="Bagikan ke Instagram">IG</a>
+      </div>
+      <button type="button" class="save-btn" data-bs-toggle="modal" data-bs-target="#bookingModal">Simpan</button>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookingModalLabel">Rencanakan Perjalananmu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <form>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="bookingName" class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" id="bookingName" placeholder="Nama kamu" required>
+          </div>
+          <div class="mb-3">
+            <label for="bookingEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="bookingEmail" placeholder="nama@email.com" required>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="bookingDate" class="form-label">Tanggal Kunjungan</label>
+              <input type="date" class="form-control" id="bookingDate" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="bookingDest" class="form-label">Destinasi</label>
+              <select class="form-select" id="bookingDest">
+                <option>Taman Air Mancur Sri Baduga</option>
+                <option>Danau Jatiluhur</option>
+                <option>Parang Gombong</option>
+                <option>Situ Wanayasa</option>
+                <option>Castle Cafe</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="bookingNote" class="form-label">Catatan (opsional)</label>
+            <textarea class="form-control" id="bookingNote" rows="3" placeholder="Jumlah rombongan, permintaan khusus, dll."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn-ember" data-bs-dismiss="modal">Kirim Rencana</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
