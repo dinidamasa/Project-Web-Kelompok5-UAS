@@ -7,13 +7,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,500;1,9..144,600&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- Bootstrap 5 CSS (loaded first so custom styles below can override it) -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="cssuas.css">
 </head>
 <body>
 
-<!-- NAV -->
 <header class="nav">
   <div class="nav-inner">
     <div class="nav-brand"><span class="dot"></span>TEMPAT WISATA</div>
@@ -23,17 +21,19 @@
     </button>
 
     <nav class="nav-tabs collapse" id="navTabsCollapse">
-      <a href="#" class="tab">Wisata Air</a>
-      <a href="#" class="tab active">Wisata Alam</a>
-      <a href="#" class="tab">Wisata Kuliner</a>
+      <a href="#beranda" class="tab active">Beranda</a>
+      <a href="#rekomendasi-wisata" class="tab">Rekomendasi</a>
+      <a href="#galeri-wisata" class="tab">Galeri</a>
     </nav>
 
-    <button class="nav-cta" data-bs-toggle="modal" data-bs-target="#bookingModal">Rencanakan perjalanan</button>
+    <div style="margin-left: auto; display: flex; align-items: center; gap: 16px;">
+      <button id="themeToggle" class="btn btn-outline-secondary d-flex align-items-center justify-content-center" style="border-radius: 50%; width: 36px; height: 36px; border-color: var(--line); color: var(--sand); background: transparent; padding:0; transition: 0.3s;" title="Ganti Tema">☀️</button>
+      <button class="nav-cta" data-bs-toggle="modal" data-bs-target="#bookingModal">Rencanakan perjalanan</button>
+    </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
+<section class="hero" id="beranda">
   <img class="hero-img" src="https://i.pinimg.com/736x/60/9f/8d/609f8d29d24141d94cbfe3db04c7c24f.jpg" alt="Gunung Kelimutu">
   <div class="hero-counter">
     <span>03</span>
@@ -54,14 +54,13 @@
   </div>
 </section>
 
-<!-- RECOMMENDATIONS -->
-<section class="section">
+<section class="section" id="rekomendasi-wisata">
   <div class="section-head">
     <div>
       <p class="eyebrow">bingung mau ke mana? ini dia</p>
       <h2 class="section-title">rekomendasi destinasi di Purwakarta</h2>
     </div>
-    <a href="#" class="section-link">Lihat semua destinasi &rarr;</a>
+    <a href="javascript:void(0)" class="section-link">Lihat semua destinasi &rarr;</a>
   </div>
 
   <div class="rec-row">
@@ -132,8 +131,6 @@
   </div>
 </section>
 
-
-<!-- PROMO -->
 <section class="promo">
   <div class="promo-media">
     <img src="https://picsum.photos/seed/raja-ampat-flag-desktop/1200/1000" alt="Raja Ampat">
@@ -155,12 +152,11 @@
       temukan destinasi pilihanmu!
     </div>
     <p class="promo-text">Dari pegunungan hingga danau, purwakarta menawarkan berbagai tempat untuk melepas penat dan menikmati — keindahan alam </p>
-    <button class="promo-cta" data-bs-toggle="modal" data-bs-target="#bookingModal"> Jelajahi Wisata &rarr;</button>
+    <a href="#rekomendasi-wisata" class="promo-cta"> Jelajahi Wisata &rarr;</a>
   </div>
 </section>
 
-<!-- GALLERY CAROUSEL -->
-<section class="gallery">
+<section class="gallery" id="galeri-wisata">
   <div class="section-head">
     <div>
       <p class="eyebrow">momen liburan</p>
@@ -216,7 +212,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="foot">
   <div class="foot-inner d-flex flex-wrap align-items-center gap-3">
     <div class="foot-author">
@@ -240,16 +235,17 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
         24
       </button>
+      
       <div class="foot-social d-flex align-items-center gap-2">
-        <a href="#" aria-label="Bagikan ke Facebook">FB</a>
-        <a href="#" aria-label="Bagikan ke Instagram">IG</a>
+        <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" aria-label="Login ke Facebook">FB</a>
+        <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" aria-label="Login ke Instagram">IG</a>
       </div>
-      <button type="button" class="save-btn" data-bs-toggle="modal" data-bs-target="#bookingModal">Simpan</button>
+      
+      <button type="button" class="save-btn" onclick="this.innerHTML='Tersimpan ✔'; this.style.backgroundColor='var(--moss)'; this.style.pointerEvents='none';">Simpan</button>
     </div>
   </div>
 </footer>
 
-<!-- BOOKING MODAL -->
 <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -272,32 +268,81 @@
               <label for="bookingDate" class="form-label">Tanggal Kunjungan</label>
               <input type="date" class="form-control" id="bookingDate" required>
             </div>
+            
             <div class="col-md-6 mb-3">
               <label for="bookingDest" class="form-label">Destinasi</label>
               <select class="form-select" id="bookingDest">
-                <option>Taman Air Mancur Sri Baduga</option>
-                <option>Danau Jatiluhur</option>
-                <option>Parang Gombong</option>
-                <option>Situ Wanayasa</option>
-                <option>Castle Cafe</option>
+                <option value="0">Pilih Destinasi...</option>
+                <option value="20000">Sri Baduga (Rp 20.000)</option>
+                <option value="15000">Danau Jatiluhur (Rp 15.000)</option>
+                <option value="10000">Parang Gombong (Rp 10.000)</option>
+                <option value="15000">Situ Wanayasa (Rp 15.000)</option>
+                <option value="25000">Castle Cafe (Rp 25.000)</option>
               </select>
             </div>
           </div>
+          
+          <div class="mb-3">
+            <label for="bookingCount" class="form-label">Jumlah Pengunjung</label>
+            <input type="number" class="form-control" id="bookingCount" min="1" value="1" required>
+          </div>
+          
+          <div class="mb-3 p-3 rounded" style="background: var(--void); border: 1px solid var(--line);">
+            <span class="form-label d-block mb-1" style="font-size: 12px;">Estimasi Total Biaya Tiket:</span>
+            <h4 id="totalCostDisplay" style="color: var(--ember-bright); margin: 0; font-weight: 700; font-family: 'JetBrains Mono', monospace;">Rp 0</h4>
+          </div>
+
           <div class="mb-1">
             <label for="bookingNote" class="form-label">Catatan (opsional)</label>
-            <textarea class="form-control" id="bookingNote" rows="3" placeholder="Jumlah rombongan, permintaan khusus, dll."></textarea>
+            <textarea class="form-control" id="bookingNote" rows="2" placeholder="Permintaan khusus, dll."></textarea>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-          <button type="submit" class="btn-ember" data-bs-dismiss="modal">Kirim Rencana</button>
+          <button type="button" class="btn-ember" data-bs-dismiss="modal">Kirim Rencana</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<!-- Bootstrap 5 JS Bundle (includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    if (body.classList.contains('light-mode')) {
+      themeToggle.innerHTML = '🌙'; 
+    } else {
+      themeToggle.innerHTML = '☀️'; 
+    }
+  });
+
+  const bookingDest = document.getElementById('bookingDest');
+  const bookingCount = document.getElementById('bookingCount');
+  const totalCostDisplay = document.getElementById('totalCostDisplay');
+
+  function calculateCost() {
+    const price = parseInt(bookingDest.value) || 0;
+    const count = parseInt(bookingCount.value) || 1;
+    const total = price * count;
+    totalCostDisplay.innerHTML = 'Rp ' + total.toLocaleString('id-ID');
+  }
+
+  bookingDest.addEventListener('change', calculateCost);
+  bookingCount.addEventListener('input', calculateCost);
+
+  const navTabs = document.querySelectorAll('.nav-tabs .tab');
+  navTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      navTabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
